@@ -1,2 +1,2 @@
 # hepsiSurada
- tryn
+ projemde sql bulunmamakta.
