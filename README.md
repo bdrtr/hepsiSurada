@@ -1,2 +1,2 @@
 # hepsiSurada
- projemde sql bulunmamakta.
+ projemde sql bulunmamakta. (şimdilik)
