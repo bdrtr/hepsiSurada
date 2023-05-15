@@ -26,7 +26,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         design = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
-            viewModel.basket."observe"(getViewLifecycleOwner(),my_basket-> {
+            viewModel.basket.observe(getViewLifecycleOwner(),my_basket-> {
 
             BasketAdapter adapter2 = new BasketAdapter(getContext(),my_basket,viewModel);
             design.recView.setAdapter(adapter2);

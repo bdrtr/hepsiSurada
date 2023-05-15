@@ -45,7 +45,6 @@ public class HomeFragmentview  extends ViewModel {
         lis.add(o5);
 
         oRepo.kisilerMut.setValue(lis);
-        oRepo.onBasketMut.setValue(lis);
     }
 
     public void add_basket(int id) {

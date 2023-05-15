@@ -15,53 +15,52 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hepsisurada.databinding.ObjectDesignBinding;
 import com.example.hepsisurada.viewModel.SearchFragmentview;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
-public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ObjectHolder> {
+public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.HolderDesign> {
 
-    public Context cnt;
-    public List<Object> list;
-    public SearchFragmentview view;
+    private Context cnt;
+    private List<Object> datas;
+    private SearchFragmentview view;
 
-    public BasketAdapter(Context cnt, List<Object> list, SearchFragmentview view) {
+    public BasketAdapter(Context cnt, List<Object> datas, SearchFragmentview view) {
         this.cnt = cnt;
-        this.list = list;
+        this.datas = datas;
         this.view = view;
-    }
-
-    public class ObjectHolder  extends RecyclerView.ViewHolder {
-        private TextView text;
-        private CardView cv;
-
-
-        public ObjectHolder(@NonNull View itemView) {
-            super(itemView);
-            cv = itemView.findViewById(R.id.names_card);
-            text = itemView.findViewById(R.id.name_text);
-
-
-        }
     }
 
     @NonNull
     @Override
-    public ObjectHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //LayoutInflater layoutInflater = LayoutInflater.from(cnt);
-        View view = LayoutInflater.from(cnt).inflate(R.layout.object_names, parent, false);
-        return new ObjectHolder(view);
+    public HolderDesign onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.object_names,parent,false);
+        return new HolderDesign(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ObjectHolder holder, int position) {
-        Object obj = list.get(position);
-        Toast.makeText(cnt, obj.getName(),Toast.LENGTH_SHORT).show();
-        holder.text.setText(obj.getName());
+    public void onBindViewHolder(@NonNull BasketAdapter.HolderDesign holder, int position) {
+        Object obj = datas.get(position);
+        holder.tx.setText(obj.getName());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return datas.size();
+    }
+
+    public class HolderDesign extends RecyclerView.ViewHolder {
+
+        private CardView cv;
+        private TextView tx;
+
+        public HolderDesign(@NonNull View itemView) {
+            super(itemView);
+            cv = itemView.findViewById(R.id.names_card);
+            tx = itemView.findViewById(R.id.name_text);
+
+
+        }
     }
 }
 
